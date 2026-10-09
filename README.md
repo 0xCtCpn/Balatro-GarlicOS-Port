@@ -16,7 +16,7 @@ Everything is packaged neatly in the release zip including runtime, audio helper
 
 ## Install
 
-1.Download the latest clean zip from Releases and extract it into SD `ROMS/PORTS/`
+1. Download the latest clean zip from Releases and extract it into SD `ROMS/PORTS/`
 2. Copy your `Balatro.exe` (Steam Manage > Browse local files) or `Balatro.love` into `ROMS/PORTS/Balatro/`
 3. Leave 250MB free. Safely eject, boot, go to PORTS -> Balatro. First launch prepares audio and looks frozen - let it finish.
 
@@ -49,9 +49,7 @@ Prerequisites (Windows):
 Steps:
 
 1. Open this folder (`Port_Balatro/`) and double-click `build.bat`
-   
 2. Wait for it to finish - success ends with `=== Built ===` plus a listing of `out/`
-   
 3. Fresh binaries land in `out/`: `balatro-runtime`, `balatro-audio`, ALSA libs (`libasound.so*`), musl `libc.so` / `ld-musl-armhf.so.1`, `share/alsa/`
 
 Run `package-release.bat` for the clean game-free zip (`Balatro_UPD/ROMS/` -> `Balatro_Garlic-release.zip`)
