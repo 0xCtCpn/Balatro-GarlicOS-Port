@@ -1,7 +1,7 @@
 @echo off
 REM Package clean Balatro release zip for GarlicOS RG35XX - game-free (no Balatro.exe)
 REM Mirrors Port_HalfLife HLv2upd flow. Run AFTER build.bat (needs out\ binaries).
-REM Output: Balatro_Garlic_v11-clean.zip with ROMS\PORTS\ layout.
+REM Output: Balatro_Garlic-release.zip with ROMS\PORTS\ layout.
 setlocal
 set STAGE=%~dp0Balatro_UPD\ROMS\PORTS
 set STAGEBAL=%STAGE%\Balatro
@@ -29,11 +29,11 @@ echo === Staged (must NOT contain Balatro.exe) ===
 dir "%STAGEBAL%"
 dir "%STAGEBAL%\share\alsa" 2>nul | more
 where powershell >nul 2>&1
-powershell -NoProfile -Command "Get-ChildItem -LiteralPath '%STAGEBAL%' -Recurse -Include 'Balatro.exe','Balatro.love','*.mp3','*.dll' | ForEach-Object { Write-Error ('LEAK: ' + $_.FullName) }; Compress-Archive -Path '%~dp0Balatro_UPD\ROMS' -DestinationPath '%~dp0Balatro_Garlic_v11-clean.zip' -Force; Get-ChildItem '%~dp0Balatro_Garlic_v11-clean.zip'"
+powershell -NoProfile -Command "Get-ChildItem -LiteralPath '%STAGEBAL%' -Recurse -Include 'Balatro.exe','Balatro.love','*.mp3','*.dll' | ForEach-Object { Write-Error ('LEAK: ' + $_.FullName) }; Compress-Archive -Path '%~dp0Balatro_UPD\ROMS' -DestinationPath '%~dp0Balatro_Garlic-release.zip' -Force; Get-ChildItem '%~dp0Balatro_Garlic-release.zip'"
 if errorlevel 1 (
   echo Package failed
   exit /b 1
 )
 echo.
-echo Done: Balatro_Garlic_v11-clean.zip (game-free - add your own Balatro.exe on SD)
+echo Done: Balatro_Garlic-release.zip (game-free - add your own Balatro.exe on SD)
 endlocal
