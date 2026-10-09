@@ -75,8 +75,6 @@ Garlic modification (see `patches/`):
 
 `Balatro.sh`: `ROMS/PORTS/` layout, musl loader staging to `/tmp`, ALSA config, `debug.log` probe, `BALATRO_FB_PAGES=1` single-buffer default. Input auto-scans `/dev/input/event*`, L2/R2 arrive as `ABS_Z`/`ABS_RZ` axes.
 
-Early builds fixed A9 SIGILL (A7+VFPv4 retarget), audio startup (INTERP), and sound/perf (Lua/async-raster/bg-cache, single-buffer, XRGB fast blit).
-
 ## Debugging
 
 If crashing open `ROMS/PORTS/Balatro/debug.log` + `runtime.log` on PC after power-off and check/submit the error
