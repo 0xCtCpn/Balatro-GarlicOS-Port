@@ -10,7 +10,7 @@ The game's Lua logic runs on LuaJIT and every frame is drawn by a CPU renderer s
 * **Software rendering** - GarlicOS has no working GL driver so the runtime draws every frame in software directly to the framebuffer (`/dev/fb0`, 640x480 native, scalar + NEON).
 * **musl libc** - the device ships a 2012-era system libc too old for anything modern compilers emit, so the port carries its own (`libc.so` + `ld-musl-armhf.so.1`, staged to `/tmp` at launch).
 
-What was compiled: the [balatro-miyoo-mini-port](https://github.com/Producdevity/balatro-miyoo-mini-port) runtime (GPLv3-only, pinned v0.1.3 `908c3e8`, vendored under `upstream/`) - Rust CPU renderer + LuaJIT - plus `native/garlic-audio.c` (ALSA helper) and alsa-lib as support libraries - all in Docker from source, with device-specific patches applied first.
+What was compiled: the [balatro-miyoo-mini-port](https://github.com/Producdevity/balatro-miyoo-mini-port) runtime (GPLv3, pinned v0.1.3 `908c3e8`, vendored under `upstream/`) - Rust CPU renderer + LuaJIT - plus `native/garlic-audio.c` (ALSA helper) and alsa-lib as support libraries - all in Docker from source, with device-specific patches applied first.
 
 Everything is packaged neatly in the release zip including runtime, audio helper, dependencies, and launcher all cross-compiled for armhf.
 
@@ -88,4 +88,4 @@ Thanks to:
 
 ## License
 
-GPLv3-only, see `LICENSE`. Corresponding source for release binaries is this repo + `Dockerfile`/`build.bat` build instructions.
+GPLv3, see `LICENSE`. Corresponding source for release binaries is this repo + `Dockerfile`/`build.bat` build instructions.
