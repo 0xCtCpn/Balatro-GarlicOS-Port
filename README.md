@@ -89,4 +89,4 @@ Thanks to:
 
 ## License
 
-GPLv3-only-only, see `LICENSE`. Corresponding source for release binaries is this repo + `Dockerfile`/`build.bat` build instructions.
+GPLv3-only, see `LICENSE`. Corresponding source for release binaries is this repo + `Dockerfile`/`build.bat` build instructions.
