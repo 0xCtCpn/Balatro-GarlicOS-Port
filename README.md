@@ -18,7 +18,9 @@ Everything is packaged neatly in the release zip including runtime, audio helper
 
 1. Download the latest clean zip from Releases and extract it into SD `ROMS/PORTS/`
 2. Copy your `Balatro.exe` (Steam Manage > Browse local files) or `Balatro.love` into `ROMS/PORTS/Balatro/`
-3. Leave 250MB free. Safely eject, boot, go to PORTS -> Balatro. First launch prepares audio and looks frozen - let it finish.
+3. Make sure to have 250MB free on the SD after copying
+   > **Important:** This is mandatory, otherwise your OS might break due to the lack of free storage.
+4. Safely eject, boot, go to PORTS -> Balatro. First launch prepares - let it finish.
 
 ## SD folder structure
 
