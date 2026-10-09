@@ -33,6 +33,7 @@ REM License files ride with the binaries (GPLv3-only: license must accompany the
 mkdir "%STAGEBAL%\licenses" 2>nul
 copy /Y "%~dp0LICENSE" "%STAGEBAL%\LICENSE.txt" >nul
 copy /Y "%~dp0upstream\NOTICE" "%STAGEBAL%\NOTICE" >nul
+copy /Y "%~dp0NOTICE.Garlic" "%STAGEBAL%\NOTICE.Garlic" >nul
 xcopy /E /I /Y "%~dp0upstream\licenses" "%STAGEBAL%\licenses" >nul
 echo === Staged (must NOT contain Balatro.exe) ===
 dir "%STAGEBAL%"

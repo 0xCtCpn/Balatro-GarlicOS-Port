@@ -1,0 +1,15 @@
+Balatro GarlicOS Port (Anbernic RG35XX)
+Copyright 2026 0xCtCpn
+Distributed under the GNU General Public License, version 3 only.
+
+Garlic modifications vs upstream Producdevity/balatro-miyoo-mini-port v0.1.3:
+- native/garlic-audio.c (new): ALSA helper replacing the Onion /dev/dsp path
+- patches/garlic-platform.patch: BALATRO_PLATFORM=garlic gates (audio routing,
+  no libpadsp.so/LD_PRELOAD)
+- Upstream runtime retargeted to Cortex-A9+NEON, evdev auto-scan, L2/R2 axes
+- Balatro.sh, Dockerfile, build.bat, package-release.bat: GarlicOS packaging
+
+Upstream code retains its own licenses; see upstream/NOTICE,
+upstream/LICENSE and upstream/licenses/.
+Balatro game files, artwork and audio are commercial LocalThunk property
+and are not covered by the project license.
