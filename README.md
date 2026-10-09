@@ -16,11 +16,11 @@ Everything is packaged neatly in the release zip including runtime, audio helper
 
 ## Install
 
-1. Download the latest clean zip from Releases and extract it into SD `ROMS/PORTS/`
+1. Download `Balatro_Garlic-release-v1.zip` from Releases and extract it into SD `ROMS/PORTS/`
 2. Copy your `Balatro.exe` (Steam Manage > Browse local files) or `Balatro.love` into `ROMS/PORTS/Balatro/`
-3. Make sure to have 250MB free on the SD after copying
-   > **Important:** This is mandatory, otherwise your OS might break due to the lack of free storage.
-4. Safely eject, boot, go to PORTS -> Balatro. First launch prepares - let it finish.
+3. Ensure 250MB free storage in SD Card.
+> **Important:** Step 3 is mandatory, otherwise your OS might break due to the lack of free storage.
+4. Boot to PORTS -> Balatro. First launch prepares audio and looks frozen - let it finish.
 
 ## SD folder structure
 
@@ -58,7 +58,7 @@ Steps:
 2. Wait for it to finish - success ends with `=== Built ===` plus a listing of `out/`
 3. Fresh binaries land in `out/`: `balatro-runtime`, `balatro-audio`, ALSA libs (`libasound.so*`), musl `libc.so` / `ld-musl-armhf.so.1`, `share/alsa/`
 
-Run `package-release.bat` for the clean game-free zip (`Balatro_UPD/ROMS/` -> `Balatro_Garlic-release.zip`)
+Run `package-release.bat` for the clean game-free zip (`Balatro_UPD/ROMS/` -> `Balatro_Garlic-release-v1.zip`)
 
 What the build does (`Dockerfile`):
 
