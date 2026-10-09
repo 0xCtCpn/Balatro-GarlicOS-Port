@@ -67,12 +67,15 @@ To install your own build: copy `out/balatro-runtime` + `out/balatro-audio` + `o
 
 ## Garlic changes from upstream
 
-Garlic modification 2026-10 (GPLv3, see `patches/`):
+Garlic modification (see `patches/`):
 
 `patches/garlic-platform.patch`: `BALATRO_PLATFORM=garlic` reuses the Onion PCM pipe but skips `libpadsp.so`/`LD_PRELOAD`.
+
 `native/garlic-audio.c`: stdin S16LE 44.1kHz stereo to ALSA `default` (vs Onion `/dev/dsp` server).
+
 `Balatro.sh`: `ROMS/PORTS/` layout, musl loader staging to `/tmp`, ALSA config, `debug.log` probe, `BALATRO_FB_PAGES=1` single-buffer default. Input auto-scans `/dev/input/event*`, L2/R2 arrive as `ABS_Z`/`ABS_RZ` axes.
-Early builds fixed A9 SIGILL (A7+VFPv4 retarget), audio startup (INTERP), and sound/perf (Lua/async-raster/bg-cache, single-buffer, XRGB fast blit). v11-clean is the first game-free release zip.
+
+Early builds fixed A9 SIGILL (A7+VFPv4 retarget), audio startup (INTERP), and sound/perf (Lua/async-raster/bg-cache, single-buffer, XRGB fast blit).
 
 ## Debugging
 
