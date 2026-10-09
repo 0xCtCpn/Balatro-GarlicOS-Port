@@ -1,0 +1,40 @@
+# Commercial Balatro game files - users must supply their own from Steam.
+# Covers ./Balatro/, the staging copy under Balatro_SD/, and any nesting.
+Balatro/
+**/Balatro.exe
+**/Balatro.love
+**/Balatro
+*.love
+*.mp3
+Soundtrack/
+steam_settings/
+*.dll
+license.txt
+steam_api64.dll.license
+readme.txt
+
+# Release zips - old v1..v10 archives embed Balatro.exe, new clean zip is a
+# GitHub Release artifact. Never commit game data to git.
+*.zip
+
+# Local SD deploy staging + clean-zip staging (duplicates out/, machine-specific)
+Balatro_SD/
+Balatro_UPD/
+
+# Docker build output (reproducible via build.bat + Dockerfile)
+out/
+
+# Runtime-generated on device / PC
+audio-cache/
+**/audio-cache/
+debug.log
+runtime.log
+launcher.log
+mark.log
+*.log
+
+# Docker build cache / editor droppings
+.docker/
+.vscode/
+*.tmp
+*.bak

@@ -1,0 +1,3 @@
+# Keep shell launchers LF-only: CRLF breaks #!/bin/sh on the device.
+*.sh text eol=lf
+*.bat text eol=crlf

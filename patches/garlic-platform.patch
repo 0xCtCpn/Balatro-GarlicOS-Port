@@ -1,0 +1,48 @@
+﻿diff --git a/crates/love-api/src/audio/onion.rs b/crates/love-api/src/audio/onion.rs
+index da4e686..3267e7a 100644
+--- a/crates/love-api/src/audio/onion.rs
++++ b/crates/love-api/src/audio/onion.rs
+@@ -19,14 +19,20 @@ impl OnionOutput {
+         let helper = std::env::current_exe()?.with_file_name("balatro-audio");
+         let interposer = "/mnt/SDCARD/miyoo/lib/libpadsp.so";
+         anyhow::ensure!(helper.is_file(), "Onion audio helper is missing");
+-        anyhow::ensure!(
+-            std::path::Path::new(interposer).is_file(),
+-            "Onion audio library is missing"
+-        );
++        // Garlic: no Onion interposer, helper talks ALSA directly.
++        let garlic = std::env::var("BALATRO_PLATFORM").as_deref() == Ok("garlic");
++        if !garlic {
++            anyhow::ensure!(
++                std::path::Path::new(interposer).is_file(),
++                "Onion audio library is missing"
++            );
++        }
+         let mut command = Command::new(&helper);
+-        command
+-            .env("LD_PRELOAD", interposer)
+-            .env_remove("PADSP_NO_DSP");
++        if !garlic {
++            command
++                .env("LD_PRELOAD", interposer)
++                .env_remove("PADSP_NO_DSP");
++        }
+         Self::start(command).with_context(|| format!("start {}", helper.display()))
+     }
+ 
+diff --git a/crates/love-api/src/audio/output.rs b/crates/love-api/src/audio/output.rs
+index cf6785d..576846d 100644
+--- a/crates/love-api/src/audio/output.rs
++++ b/crates/love-api/src/audio/output.rs
+@@ -14,7 +14,10 @@ impl AudioOutput {
+         if let Some(path) = std::env::var_os("BALATRO_AUDIO_CAPTURE") {
+             return CaptureOutput::open(std::path::Path::new(&path)).map(Self::Capture);
+         }
+-        if std::env::var("BALATRO_PLATFORM").as_deref() == Ok("miyoo") {
++        if matches!(
++            std::env::var("BALATRO_PLATFORM").as_deref(),
++            Ok("miyoo") | Ok("garlic")
++        ) {
+             return super::onion::OnionOutput::open().map(Self::Onion);
+         }
+         DeviceOutput::open().map(Self::Device)
