@@ -59,8 +59,6 @@ Steps:
 2. Wait for it to finish - success ends with `=== Built ===` plus a listing of `out/`
 3. Fresh binaries land in `out/`: `balatro-runtime`, `balatro-audio`, ALSA libs (`libasound.so*`), musl `libc.so` / `ld-musl-armhf.so.1`, `share/alsa/`
 
-Run `package-release.bat` for the clean game-free zip (`Balatro_UPD/ROMS/` -> `Balatro_Garlic-release-v1.zip`)
-
 What the build does (`Dockerfile`):
 
 * Starts from `debian:bookworm`, installs compilers and build tools
@@ -69,8 +67,6 @@ What the build does (`Dockerfile`):
 * Installs Rust 1.97.1 + Zig 0.16.0 + cargo-zigbuild 0.23.4 (matches upstream, GitHub mirror fallback), cross-builds static LuaJIT, retargets SLEEF from Cortex-A7+VFPv4 to Cortex-A9+NEON, then `cargo zigbuild` the runtime with `-C target-cpu=cortex-a9`
 * Builds the `garlic-audio` helper (musl + ALSA, INTERP `/tmp/ld-musl-armhf.so.1`)
 * Prints checks at the end: helper INTERP/needed libs, and no `GLIBC_*` version deps in the static runtime
-
-To install your own build: copy `out/balatro-runtime` + `out/balatro-audio` + `out/libasound.so*` + `out/libc.so` + `out/ld-musl-armhf.so.1` + `out/share` to SD `ROMS/PORTS/Balatro/`, then copy `Balatro.sh` to SD `ROMS/PORTS/`, then add your `Balatro.exe`.
 
 ## Garlic changes from upstream
 
@@ -84,7 +80,7 @@ Garlic modification (see `patches/`):
 
 ## Debugging
 
-If crashing open `ROMS/PORTS/Balatro/debug.log` + `runtime.log` on PC after power-off and check/submit the error
+If crashing fetch `ROMS/PORTS/Balatro/debug.log` + `runtime.log` from the SD Card and check/submit the error
 
 ## Credits
 
